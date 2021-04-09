@@ -63,7 +63,6 @@ const slideAbout = () => {
         aboutBoxOne.classList.add('about-drop');
     } 
 
-
 };
 
 const removeDrop = e => {
@@ -119,15 +118,14 @@ const displayShop = shop => {
 
     const shopItems = shop.map(item => {
         return `
-        <div class="shop-img">
-            <img src=${item.image_url} alt=${item.name}>
-        </div>
-        <h3 class="shop-name">${item.name}</h3>
-        <h3 class="shop-first-brewed">first brewed: ${item.first_brewed}</h3>
-        <h3 class="shop-abv">abv: ${item.abv}</h3>
-        <p class="shop-desc">"${item.description}"</p>
-
-        `;
+                <div class="shop-img">
+                    <img src=${item.image_url} alt=${item.name}>
+                </div>
+                <h3 class="shop-name">${item.name}</h3>
+                <h3 class="shop-first-brewed">first brewed: ${item.first_brewed}</h3>
+                <h3 class="shop-abv">abv: ${item.abv}</h3>
+                <p class="shop-desc">"${item.description}"</p>
+              `;
     });
 
     shopCenterMain.innerHTML = shopItems[shopCounter];
@@ -149,19 +147,15 @@ const shopPrev = () => {
 
 };
 
-
-
-
 shopLeft.addEventListener('click', shopPrev);
 shopRight.addEventListener('click', shopNext);
 
 window.addEventListener('DOMContentLoaded', async () => {
+    
     shop = await getShop();
     await displayShop(shop);
     
 });
-
-
 
 shopCenterRight.addEventListener('click', shopNext);
 shopCenterLeft.addEventListener('click', shopPrev);
